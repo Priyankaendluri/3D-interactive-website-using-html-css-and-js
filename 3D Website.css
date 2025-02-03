@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+.container {
+    perspective: 1000px;
+}
+
+.cube {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotateCube 5s infinite linear;
+    cursor: grab;
+}
+
+.face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(0, 0, 255, 0.5);
+    border: 1px solid #333;
+}
+
+.front  { transform: translateZ(100px); background-color: rgba(255, 0, 0, 0.7); }
+.back   { transform: rotateY(180deg) translateZ(100px); background-color: rgba(0, 255, 0, 0.7); }
+.left   { transform: rotateY(-90deg) translateZ(100px); background-color: rgba(0, 0, 255, 0.7); }
+.right  { transform: rotateY(90deg) translateZ(100px); background-color: rgba(255, 255, 0, 0.7); }
+.top    { transform: rotateX(90deg) translateZ(100px); background-color: rgba(255, 0, 255, 0.7); }
+.bottom { transform: rotateX(-90deg) translateZ(100px); background-color: rgba(0, 255, 255, 0.7); }
+
+@keyframes rotateCube {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
